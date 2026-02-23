@@ -25,6 +25,16 @@ function WriteFile(path, content)
     return true;
 end
 
+function ReadFile(path)
+    local file = io.open(path, 'r');
+    if file then
+        local content = file:read('*all');
+        file:close();
+        return content
+    end
+    return false
+end
+
 function RemoveFile(path)
     local sucess, message = os.remove(path);
     if sucess then

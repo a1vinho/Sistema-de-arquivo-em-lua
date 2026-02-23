@@ -15,8 +15,9 @@ local optionsDir = [[
 local optionsFile = [[
     1 - Criar arquivo
     2 - Escrever arquivo
-    3 - Excluir arquivo
-    4 - Volta para o sistema principal
+    3 - Ler arquivo
+    4 - Excluir arquivo
+    5 - Volta para o sistema principal
 ]]
 
 local function SystemFile()
@@ -85,12 +86,19 @@ local function SystemFile()
                 if optionFile == '3' then
                     io.write('Digite o nome do arquivo - ');
                     local file = io.read();
+                    local content = ReadFile(file);
+
+                    print(content)
+                end
+                if optionFile == '4' then
+                    io.write('Digite o nome do arquivo - ');
+                    local file = io.read();
 
                     local message = RemoveFile(file);
 
                     print(message);
                 end
-                if optionFile == '4' then
+                if optionFile == '5' then
                     print('Voltando ao menu principal...');
                     break
                 end
